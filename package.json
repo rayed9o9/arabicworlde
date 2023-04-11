@@ -1,18 +1,27 @@
 {
   "name": "wordly",
   "version": "1.0.0",
-  "description": "",
+  "description": "��#\u0000 \u0000a\u0000r\u0000a\u0000b\u0000i\u0000c\u0000w\u0000o\u0000r\u0000l\u0000d\u0000e\u0000\r\u0000 \u0000",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "ray",
   "license": "ISC",
   "dependencies": {
     "crypto-js": "^4.1.1",
     "epress": "^0.0.1-security",
     "express": "^4.18.2",
     "node": "^19.6.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rayed9o9/arabicworlde.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rayed9o9/arabicworlde/issues"
+  },
+  "homepage": "https://github.com/rayed9o9/arabicworlde#readme"
 }
