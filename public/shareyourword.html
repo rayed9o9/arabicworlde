@@ -62,7 +62,7 @@
 
         word = CryptoJS.AES.encrypt(word, "iknowUknow").toString()
         link = window.location.host;
-        link = `${link}/index.html?${word}`;
+        link = `https://${link}/index.html?${word}`;
         console.log(link);
 
         navigator.clipboard.writeText(link);

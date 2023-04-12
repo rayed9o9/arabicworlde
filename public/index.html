@@ -272,10 +272,14 @@
 
 
     function submitNumber() {
+      if(row >= 8){
+        return;
+      }
       if (current_green > 4) {
         alert(`الكلمة هي : ${guess}`);
         return;
       }
+      
       if (coll == 5) {
         let table = document.querySelector("#numbers");
         let submit_row = table.querySelector(`#row${row}`);
@@ -290,6 +294,9 @@
               )}`
             ).className = "green";
             current_green++;
+            if(current_green > 4){
+              alert(`احسنت، الكلمة هي : ${guess}`);
+            }
           } else if (
             guess.search(submit_row.querySelector(`#td${i}`).textContent) !=
             -1
@@ -313,6 +320,10 @@
         }
 
         row++;
+        if(row >= 8){
+        alert(` الكلمة هي : ${guess}`);
+        return;
+      }
         coll = 0;
       } else {
         return;
