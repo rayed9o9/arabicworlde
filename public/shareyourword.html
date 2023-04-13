@@ -3,13 +3,13 @@
 
 <head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6308708380323883"
-     crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> الكلمة أونلاين</title>
   <meta property="og:title" content='اتحداك تحل كلمتي' />
-  <meta property="og:image" content='https://blogimage.vantagefit.io/vfitimages/2020/11/30-days-challenges.png'/>
+  <meta property="og:image" content='https://blogimage.vantagefit.io/vfitimages/2020/11/30-days-challenges.png' />
   <meta property="og:description" content='هل تقدر تحل كلمتي السرية؟' />
   <meta property="og:url" content='https://arabicwordle.herokuapp.com' />
   <meta property='og:image:width' content='681' />
@@ -25,10 +25,9 @@
   <div id="wrapper" class="center">
     <div id="header">
       <div class="absleft">
-        
+
         <a href="shareyourword.html">
-          <button id="hardmodebutton" class="smallbutton" alt="أكتب كلمتك الخاصة"
-            title="أكتب كلمتك الخاصة">
+          <button id="hardmodebutton" class="smallbutton" alt="أكتب كلمتك الخاصة" title="أكتب كلمتك الخاصة">
             <p class="material-icons">share</p>
           </button>
         </a>
@@ -56,17 +55,32 @@
 
     <input type="text" name="" maxlength="5" id="tf_word" autocomplete="on" placeholder="لازم خمس حروف">
     <br>
-    <button style="width:20%; background:#616161; border-radius:6px; margin:2vb; padding: 2vb;" onclick="generate_link()">اعطني الرابط</button>
+    <button style="width:20%; background:#616161; border-radius:6px; margin:2vb; padding: 2vb;"
+      onclick="generate_link()">اعطني الرابط</button>
 
     <script type="text/javascript" src="crypto-js/crypto-js.js"></script>
     <script>
+      if (location.protocol !== 'https:') {
+        location.replace(`https:${location.href.substring(location.protocol.length)}`);
+      }
+
+      let keyboard = "ضصثقفغعهخحجدشسيبلاتنمكطئءؤرىةوزظ";
       function generate_link() {
         let word = document.querySelector("#tf_word").value;
-        console.log(word);
+
         if (word.length <= 4 || word.length > 5) {
           alert("الكلمة يجب ان تكون خمس حروف")
           return;
         }
+        console.log(word.length);
+        for (let i = 0; i < word.length; i++) {
+          if (!keyboard.includes(word[i])) {
+            alert("يسمح في خمس حروف عربية فقط بدون حركات أو علامات ترقيم");
+            return;
+          }
+
+        }
+
 
         word = CryptoJS.AES.encrypt(word, "iknowUknow").toString()
         link = window.location.host;
@@ -75,9 +89,6 @@
 
         navigator.clipboard.writeText(link);
         alert("تم نسخ الرابط يمكنك الان مشاركته");
-
-
-
 
       }
     </script>

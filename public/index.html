@@ -233,7 +233,10 @@
     let row = 0;
     let coll = 0;
     let guess = bytes.toString(CryptoJS.enc.Utf8);
-    if (guess.length > 5) guess = "خواطر";
+    console.log(guess.length);
+    if (guess.length > 5 || guess.length < 5){
+      window.location.replace("/shareyourword.html");
+    } 
     let user_guess = "";
     let keyboard = "ضصثقفغعهخحجدشسيبلاتنمكطئءؤرىةوزظ";
     let current_green = 0;
@@ -281,13 +284,17 @@
     }
 
 
-
+    let alerted = false;
     function submitNumber() {
+      if(alerted){
+        return;
+      }
       if(row >= 8){
         return;
       }
       if (current_green > 4) {
         alert(`الكلمة هي : ${guess}`);
+        alerted = true;
         return;
       }
       
@@ -307,6 +314,8 @@
             current_green++;
             if(current_green > 4){
               alert(`احسنت، الكلمة هي : ${guess}`);
+              alerted = true;
+              return;
             }
           } else if (
             guess.search(submit_row.querySelector(`#td${i}`).textContent) !=
