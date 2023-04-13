@@ -81,13 +81,13 @@
 
         }
 
+        
 
         word = CryptoJS.AES.encrypt(word, "iknowUknow").toString()
         link = window.location.host;
         link = `https://${link}/index.html?${word}`;
         console.log(link);
-        link.select();
-        link.setSelectionRange(0, 99999);
+        
         navigator.clipboard.writeText(link).then(() => {
           alert("تم نسخ الرابط يمكنك الان مشاركته");
       })
