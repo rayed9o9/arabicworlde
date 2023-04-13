@@ -86,9 +86,15 @@
         link = window.location.host;
         link = `https://${link}/index.html?${word}`;
         console.log(link);
-
-        navigator.clipboard.writeText(link);
-        alert("تم نسخ الرابط يمكنك الان مشاركته");
+        link.select();
+        link.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(link).then(() => {
+          alert("تم نسخ الرابط يمكنك الان مشاركته");
+      })
+      .catch(() => {
+        alert("something went wrong");
+      });
+        
 
       }
     </script>
