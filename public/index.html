@@ -313,8 +313,11 @@
             ).className = "green";
             current_green++;
             if(current_green > 4){
-              alert(`احسنت، الكلمة هي : ${guess}`);
-              alerted = true;
+              if(!alerted){
+                alert(`احسنت، الكلمة هي : ${guess}`);
+                alerted = true;
+              }
+              
             }
           } else if (
             guess.search(submit_row.querySelector(`#td${i}`).textContent) !=
