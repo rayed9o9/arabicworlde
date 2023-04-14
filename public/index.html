@@ -292,7 +292,11 @@
       if(row >= 8){
         return;
       }
-      
+      if (current_green > 4) {
+        alert(`الكلمة هي : ${guess}`);
+        alerted = true;
+        return;
+      }
       
       if (coll == 5) {
         let table = document.querySelector("#numbers");
@@ -311,7 +315,6 @@
             if(current_green > 4){
               alert(`احسنت، الكلمة هي : ${guess}`);
               alerted = true;
-              return;
             }
           } else if (
             guess.search(submit_row.querySelector(`#td${i}`).textContent) !=
