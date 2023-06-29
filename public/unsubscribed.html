@@ -89,7 +89,10 @@
 
     const analytics = getAnalytics(app);
 
-    import { collection, addDoc } from "firebase/firestore";
+    import {
+      collection,
+      addDoc,
+    } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 
     try {
       const docRef = await addDoc(collection(db, "users"), {
