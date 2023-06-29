@@ -48,62 +48,62 @@
 
       <p>Thank you for being a part of our community!</p>
     </div>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
+
+      // TODO: Add SDKs for Firebase products that you want to use
+
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyAFxEadsWIpZCpYAzrZH0gvbEDeDP5vltY",
+
+        authDomain: "arabicwordle.firebaseapp.com",
+
+        databaseURL:
+          "https://arabicwordle-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+        projectId: "arabicwordle",
+
+        storageBucket: "arabicwordle.appspot.com",
+
+        messagingSenderId: "118951234742",
+
+        appId: "1:118951234742:web:5cf004b9684f5ea0d4aa17",
+
+        measurementId: "G-7X6CGFS1WY",
+      };
+
+      // Initialize Firebase
+
+      const app = initializeApp(firebaseConfig);
+
+      const analytics = getAnalytics(app);
+
+      import {
+        collection,
+        addDoc,
+      } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+
+      try {
+        const docRef = await addDoc(collection(db, "users"), {
+          first: "Ada",
+          last: "Lovelace",
+          born: 1815,
+        });
+        console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+    </script>
   </body>
   <!--added -->
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
-
-    // TODO: Add SDKs for Firebase products that you want to use
-
-    // https://firebase.google.com/docs/web/setup#available-libraries
-
-    // Your web app's Firebase configuration
-
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyAFxEadsWIpZCpYAzrZH0gvbEDeDP5vltY",
-
-      authDomain: "arabicwordle.firebaseapp.com",
-
-      databaseURL:
-        "https://arabicwordle-default-rtdb.asia-southeast1.firebasedatabase.app",
-
-      projectId: "arabicwordle",
-
-      storageBucket: "arabicwordle.appspot.com",
-
-      messagingSenderId: "118951234742",
-
-      appId: "1:118951234742:web:5cf004b9684f5ea0d4aa17",
-
-      measurementId: "G-7X6CGFS1WY",
-    };
-
-    // Initialize Firebase
-
-    const app = initializeApp(firebaseConfig);
-
-    const analytics = getAnalytics(app);
-
-    import {
-      collection,
-      addDoc,
-    } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-
-    try {
-      const docRef = await addDoc(collection(db, "users"), {
-        first: "Ada",
-        last: "Lovelace",
-        born: 1815,
-      });
-      console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
-  </script>
 </html>
