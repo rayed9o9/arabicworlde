@@ -83,25 +83,30 @@
       };
 
       // Initialize Firebase
-
       const app = initializeApp(firebaseConfig);
-
-      const analytics = getAnalytics(app);
+      const db = getFirestore(app);
+      const dbRef = collection(db, "users");
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
 
       import {
+        getFirestore,
         collection,
         addDoc,
-      } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+      } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-      try {
-        const docRef = await addDoc(collection(db, "users"), {
-          first: "Ada",
-          last: "Lovelace",
-          born: 1815,
-        });
-        console.log("Document written with ID: ", docRef.id);
-      } catch (e) {
-        console.error("Error adding document: ", e);
+      if (urlParams.has("email")) {
+        const email = urlParams.get("email");
+        const data = {
+          email: email,
+        };
+        addDoc(dbRef, data)
+          .then((docRef) => {
+            console.log("Document has been added successfully");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       }
     </script>
   </body>
