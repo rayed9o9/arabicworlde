@@ -128,6 +128,7 @@ form{
   background:#555;
   border-radius:6px;
   margin:3px;
+  margin-left: 10px;
 }
 #numpad button:hover, #numpad button:hover p{
   
@@ -201,6 +202,7 @@ form{
 }
 #numbers{
   margin-top:10px;
+  width: 55%;
 }
 #winner, #about{
   background:#444;
@@ -314,8 +316,14 @@ position:absolute;
 
 #wrapper{
   width:600px;
+  margin-top: 5px;
   transform-style: flat;
   perspective:1000;
+}
+
+#makeYourWord{
+  margin-left: 50px;
+  font-size: 15px;
 }
 
 @media only screen and (max-width:600px){
